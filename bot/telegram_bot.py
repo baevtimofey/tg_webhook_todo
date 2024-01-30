@@ -1,5 +1,5 @@
 from aiogram import Bot, Dispatcher, types
-from aiogram.filters import CommandStart
+from aiogram.filters import Command, CommandStart
 
 from core.config import settings
 
@@ -15,3 +15,17 @@ async def command_start_handler(message: types.Message) -> None:
 /list - вывести список задач (сортировка по дате добавления). 
     """
     await message.answer(text)
+
+
+@dp.message(Command("add"))
+async def add_task(message: types.Message):
+    await message.answer("press to add")
+
+
+@dp.message(Command("list"))
+async def get_tasks(message: types.Message):
+    await message.answer("press to list")
+
+# @dp.message()
+# async def other_events():
+#     pass
