@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e63e9545-7b08-4fa9-9f31-35a7db1514ef" name="Changes" comment="create webservice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/061142f31a60_init.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/telegram_bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/telegram_bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/models/db_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/db_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/models/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/task.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_service/api_v1/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_service/api_v1/tasks/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web_service/web_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_service/web_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +51,12 @@
     "git-widget-placeholder": "main"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web_service" />
+      <recent name="$PROJECT_DIR$/web_service/webhook" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="web_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tg_webhook_todo" />
@@ -163,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706673672989</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="create webservice">
+      <option name="closed" value="true" />
+      <created>1706806785785</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706806785785</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,5 +197,31 @@
     <MESSAGE value="create bot" />
     <MESSAGE value="create webservice" />
     <option name="LAST_COMMIT_MESSAGE" value="create webservice" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_service/web_server.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_service/api_v1/tasks/views.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_service/api_v1/tasks/views.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_service/api_v1/tasks/views.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
