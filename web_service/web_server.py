@@ -31,7 +31,10 @@ app.include_router(router=api_v1_router, prefix=settings.API_V1_PREFIX)
 @app.post(settings.WEBHOOK_PATH)
 async def bot_webhook(update: dict):
     telegram_update = types.Update(**update)
-    print(telegram_update.message.text)
+    if telegram_update.message.entities:
+        print(f"Started {telegram_update.message.text}")
+    else:
+        print(f"Simple text --> {telegram_update.message.text}")
     await dp.feed_update(bot, telegram_update)
 
 

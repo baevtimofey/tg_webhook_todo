@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e63e9545-7b08-4fa9-9f31-35a7db1514ef" name="Changes" comment="create webservice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/versions/061142f31a60_init.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/telegram_bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/telegram_bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/db_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/db_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/task.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web_service/web_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_service/web_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,9 +37,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2bdaGcSojZXoWkc0rPGmUKUyMhU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -47,7 +51,7 @@
     "Python.web_server.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev"
+    "git-widget-placeholder": "main"
   }
 }]]></component>
   <component name="RunManager">
@@ -151,8 +155,27 @@
       <option name="project" value="LOCAL" />
       <updated>1706640604856</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="create webservice">
+      <option name="closed" value="true" />
+      <created>1706673672988</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706673672989</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added gitignore" />

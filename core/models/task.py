@@ -9,4 +9,4 @@ from .base import Base
 class Task(Base):
     title: Mapped[str]
     description: Mapped[str] = mapped_column(Text())
-    create_date: Mapped[datetime]
+    create_date: Mapped[datetime] = mapped_column(default=func.now())
