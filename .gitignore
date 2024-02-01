@@ -92,3 +92,4 @@ pyvenv.cfg
 .env
 pip-selfcheck.json
 .idea
+__pycache__
