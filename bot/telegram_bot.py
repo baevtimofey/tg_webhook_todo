@@ -1,11 +1,9 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command, CommandStart
-from fastapi import Depends
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from core.config import settings
 from core.models import db_helper
-from core.cruds import task as crud_task
+from core.cruds import task as task_crud
 from web_service.api_v1.tasks import schemas
 
 bot = Bot(settings.TELEGRAM_BOT_TOKEN)
@@ -30,7 +28,8 @@ async def add_task(message: types.Message):
     }
     task = schemas.TaskCreate(**task_data)
     sess = db_helper.get_async_session()
-    await crud_task.create_task(session=sess, task_in=task)
+    sess = await anext(sess)
+    await task_crud.create_task(session=sess, task_in=task)
     await message.answer(f"Something was happened")
 
 

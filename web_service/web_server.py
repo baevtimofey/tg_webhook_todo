@@ -1,12 +1,11 @@
 from contextlib import asynccontextmanager
 
-import uvicorn
-from fastapi import FastAPI, requests
-from aiogram import types, Dispatcher, Bot
+from fastapi import FastAPI
 
-from bot.telegram_bot import bot, dp
+from bot.telegram_bot import bot
 from core.config import settings
 from api_v1 import router as api_v1_router
+from webhook.telegram_router import router as telegram_router
 
 
 @asynccontextmanager
@@ -22,25 +21,6 @@ async def lifespan(app: FastAPI):
     await bot.session.close()
 
 
-app = FastAPI(
-    lifespan=lifespan,
-)
+app = FastAPI(lifespan=lifespan)
 app.include_router(router=api_v1_router, prefix=settings.API_V1_PREFIX)
-
-
-@app.post(settings.WEBHOOK_PATH)
-async def bot_webhook(update: dict):
-    telegram_update = types.Update(**update)
-    if telegram_update.message.entities:
-        print(f"Started {telegram_update.message.text}")
-    else:
-        print(f"Simple text --> {telegram_update.message.text}")
-    await dp.feed_update(bot, telegram_update)
-
-
-if __name__ == '__main__':
-    uvicorn.run(
-        app="web_server:app",
-        reload=True,
-        port=8080
-    )
+app.include_router(router=telegram_router)
