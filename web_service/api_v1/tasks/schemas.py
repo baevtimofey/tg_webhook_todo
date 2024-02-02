@@ -2,8 +2,8 @@ from pydantic import BaseModel, ConfigDict
 
 
 class TaskBase(BaseModel):
-    title: str
     description: str
+    user_id: int
 
 
 class TaskCreate(TaskBase):

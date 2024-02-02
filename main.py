@@ -3,7 +3,7 @@ import uvicorn
 
 def main() -> None:
     uvicorn.run(
-        app="web_server:app",
+        app="web_service.web_server:app",
         reload=True,
         port=8080
     )

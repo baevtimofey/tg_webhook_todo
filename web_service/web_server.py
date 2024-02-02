@@ -4,8 +4,8 @@ from fastapi import FastAPI
 
 from bot.telegram_bot import bot
 from core.config import settings
-from api_v1 import router as api_v1_router
-from webhook.telegram_router import router as telegram_router
+from web_service.api_v1 import router as api_v1_router
+from web_service.webhook.telegram_router import router as telegram_router
 
 
 @asynccontextmanager
