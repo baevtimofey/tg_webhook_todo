@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e63e9545-7b08-4fa9-9f31-35a7db1514ef" name="Changes" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/bot/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/cruds/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_service/api_v1/users/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_service/api_v1/users/schemas.py" afterDir="false" />
+    <list default="true" id="e63e9545-7b08-4fa9-9f31-35a7db1514ef" name="Changes" comment="created command start">
+      <change afterPath="$PROJECT_DIR$/bot/states/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/states/form_task.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/0b5fdecbbb5a_init_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/routers/commands/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/routers/commands/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/routers/commands/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/routers/commands/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/cruds/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/cruds/task.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/models/db_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/db_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/cruds/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/cruds/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_service/web_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_service/web_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.main.executor": "Run",
+    "Python.main.executor": "Debug",
     "Python.telegram_bot.executor": "Run",
     "Python.web_server.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -269,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706850214300</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="created command start">
+      <option name="closed" value="true" />
+      <created>1706945524837</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1706945524838</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -294,22 +297,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="Created user's table" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/cruds/user.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/cruds/user.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="created command start" />
+    <option name="LAST_COMMIT_MESSAGE" value="created command start" />
   </component>
 </project>

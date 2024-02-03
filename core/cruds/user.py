@@ -34,4 +34,4 @@ async def get_user_by_telegram_id(
     user = result.all()
     if len(user) == 0:
         return None
-    return user
+    return user[0]
