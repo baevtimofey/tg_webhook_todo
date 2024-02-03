@@ -1,4 +1,4 @@
-from typing import AsyncGenerator
+from typing import Union
 
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 
@@ -18,9 +18,9 @@ class DatabaseHelper:
             expire_on_commit=False
         )
 
-    async def get_async_session(self) -> AsyncGenerator[AsyncSession, None]:
+    async def get_async_session(self) -> Union[AsyncSession, None]:
         async with self.session_factory() as session:
-            yield session
+            return session
 
 
 db_helper = DatabaseHelper(
