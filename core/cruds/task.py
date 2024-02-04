@@ -37,15 +37,15 @@ async def get_tasks(session: AsyncSession) -> list[Task]:
 async def get_tasks_current_user(
         session: AsyncSession,
         telegram_user_id: int
-) -> list[Result]:
+) -> list[Task]:
     stmt = (
-        select(Task.id, Task.description, Task.create_date, User)
+        select(Task, User)
         .join(User.tasks)
         .where(User.telegram_id == telegram_user_id)
         .order_by(Task.create_date)
     )
-    result: Result = await session.execute(stmt)
-    return result
+    result = await session.scalars(stmt)
+    return list(result)
 
 
 async def delete_task(

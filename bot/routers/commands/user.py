@@ -13,13 +13,28 @@ from web_service.api_v1.tasks import schemas
 router = Router()
 
 
+async def is_task_exceeded(
+        message: types.Message,
+        limit: int = 5,
+) -> bool:
+    async with db_helper.session_factory() as sess:
+        tasks = await get_tasks_current_user(
+            session=sess,
+            telegram_user_id=message.from_user.id
+        )
+        return len(tasks) < limit
+
+
 @router.message(Command("add"))
 async def add_task(
         message: types.Message,
         state: FSMContext,
 ) -> None:
-    await state.set_state(FormTask.description)
-    await message.answer(f"Какую задачу нужно поместить в todo?")
+    if await is_task_exceeded(message):
+        await state.set_state(FormTask.description)
+        await message.answer(f"Какую задачу нужно поместить в todo?")
+    else:
+        await message.answer("Максимальное количество задач = 5")
 
 
 @router.message(FormTask.description)
@@ -107,8 +122,8 @@ async def build(message: types.Message):
     )
     for task in tasks:
         builder.button(
-            text=f"{task[1]} {task[2].strftime('%d %b - %H:%M')}",
-            callback_data=ListTaskCallback(action="delete", task_id=task[0], message_id=message.message_id)
+            text=f"{task.description} {task.create_date.strftime('%d %b - %H:%M')}",
+            callback_data=ListTaskCallback(action="delete", task_id=task.id, message_id=message.message_id)
         )
     builder.adjust(1)
 
@@ -117,7 +132,6 @@ async def build(message: types.Message):
 
 @router.message(Command("list"))
 async def show_tasks(message: types.Message):
-
     text = "Задачи"
     builder = await build(message)
     await message.answer(

@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e63e9545-7b08-4fa9-9f31-35a7db1514ef" name="Changes" comment="created command start">
-      <change afterPath="$PROJECT_DIR$/bot/states/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot/states/form_task.py" afterDir="false" />
+    <list default="true" id="e63e9545-7b08-4fa9-9f31-35a7db1514ef" name="Changes" comment="delete task after touch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/routers/commands/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/routers/commands/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/cruds/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/cruds/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_service/web_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_service/web_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/cruds/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/cruds/task.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +44,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.main.executor": "Debug",
+    "Python.main.executor": "Run",
     "Python.telegram_bot.executor": "Run",
     "Python.web_server.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "preferences.editor"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -272,7 +270,31 @@
       <option name="project" value="LOCAL" />
       <updated>1706945524838</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="adding task by bot">
+      <option name="closed" value="true" />
+      <created>1706954788048</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1706954788048</updated>
+    </task>
+    <task id="LOCAL-00017" summary="show user's tasks">
+      <option name="closed" value="true" />
+      <created>1707019646917</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1707019646917</updated>
+    </task>
+    <task id="LOCAL-00018" summary="delete task after touch">
+      <option name="closed" value="true" />
+      <created>1707066278758</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1707066278759</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,6 +320,9 @@
     <MESSAGE value="Created user's table" />
     <MESSAGE value="refactor" />
     <MESSAGE value="created command start" />
-    <option name="LAST_COMMIT_MESSAGE" value="created command start" />
+    <MESSAGE value="adding task by bot" />
+    <MESSAGE value="show user's tasks" />
+    <MESSAGE value="delete task after touch" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete task after touch" />
   </component>
 </project>
