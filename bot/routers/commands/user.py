@@ -1,10 +1,12 @@
-from aiogram import types, Router
+from aiogram import types, Router, F
 from aiogram.filters import Command
+from aiogram.filters.callback_data import CallbackData, CallbackQuery
 from aiogram.fsm.context import FSMContext
+from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from bot.states.form_task import FormTask
 from core.cruds.user import get_user_by_telegram_id
-from core.cruds.task import create_task, get_tasks_current_user
+from core.cruds.task import create_task, get_tasks_current_user, delete_task, get_task
 from core.models import db_helper
 from web_service.api_v1.tasks import schemas
 
@@ -49,6 +51,7 @@ async def process_dont_confirm(
         message: types.Message,
         state: FSMContext,
 ) -> None:
+    await message.delete()
     await state.clear()
     await message.answer(
         "Отмена записи задачи в todo.",
@@ -64,6 +67,7 @@ async def process_confirm(
         message: types.Message,
         state: FSMContext,
 ) -> None:
+    await message.delete()
     session = await db_helper.get_async_session()
     user_telegram_id = message.from_user.id
     user = await get_user_by_telegram_id(
@@ -88,15 +92,53 @@ async def process_unknown_write_bots(message: types.Message) -> None:
     await message.reply("Ожидаю подтверждение.")
 
 
-@router.message(Command("list"))
-async def show_tasks(message: types.Message):
+class ListTaskCallback(CallbackData, prefix="task"):
+    action: str
+    task_id: int
+    message_id: int
+
+
+async def build(message: types.Message):
+    builder = InlineKeyboardBuilder()
     session = await db_helper.get_async_session()
     tasks = await get_tasks_current_user(
         session=session,
         telegram_user_id=message.from_user.id
     )
-    text = "Задачи:\n"
-    for index, task in enumerate(tasks, 1):
-        row = f"\t{index}) {task[0]} - {task[1]}\n"
-        text += row
-    await message.answer(text)
+    for task in tasks:
+        builder.button(
+            text=f"{task[1]} {task[2].strftime('%d %b - %H:%M')}",
+            callback_data=ListTaskCallback(action="delete", task_id=task[0], message_id=message.message_id)
+        )
+    builder.adjust(1)
+
+    return builder
+
+
+@router.message(Command("list"))
+async def show_tasks(message: types.Message):
+
+    text = "Задачи"
+    builder = await build(message)
+    await message.answer(
+        text=text,
+        reply_markup=builder.as_markup()
+    )
+    print(f"message_id of /list{message.message_id}")
+
+
+@router.callback_query(ListTaskCallback.filter(F.action == "delete"))
+async def del_task(
+        query: CallbackQuery,
+        callback_data: ListTaskCallback,
+):
+    async with db_helper.session_factory() as sess:
+        task = await get_task(
+            session=sess,
+            task_id=callback_data.task_id
+        )
+        await delete_task(
+            session=sess,
+            task=task
+        )
+    await query.message.answer("Задача удалена.\nНажмите /list")

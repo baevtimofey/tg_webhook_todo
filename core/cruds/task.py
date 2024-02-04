@@ -1,3 +1,5 @@
+from typing import Union
+
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from sqlalchemy.engine import Result
@@ -18,6 +20,13 @@ async def create_task(
     return task
 
 
+async def get_task(
+        session: AsyncSession,
+        task_id: int,
+) -> Union[Task, None]:
+    return await session.get(Task, task_id)
+
+
 async def get_tasks(session: AsyncSession) -> list[Task]:
     stmt = select(Task).order_by(Task.create_date)
     result: Result = await session.execute(stmt)
@@ -30,7 +39,7 @@ async def get_tasks_current_user(
         telegram_user_id: int
 ) -> list[Result]:
     stmt = (
-        select(Task.description, Task.create_date, User)
+        select(Task.id, Task.description, Task.create_date, User)
         .join(User.tasks)
         .where(User.telegram_id == telegram_user_id)
         .order_by(Task.create_date)
