@@ -4,7 +4,7 @@ from aiogram.fsm.context import FSMContext
 
 from bot.states.form_task import FormTask
 from core.cruds.user import get_user_by_telegram_id
-from core.cruds.task import create_task
+from core.cruds.task import create_task, get_tasks_current_user
 from core.models import db_helper
 from web_service.api_v1.tasks import schemas
 
@@ -89,5 +89,14 @@ async def process_unknown_write_bots(message: types.Message) -> None:
 
 
 @router.message(Command("list"))
-async def get_tasks(message: types.Message):
-    await message.answer("press to list")
+async def show_tasks(message: types.Message):
+    session = await db_helper.get_async_session()
+    tasks = await get_tasks_current_user(
+        session=session,
+        telegram_user_id=message.from_user.id
+    )
+    text = "Задачи:\n"
+    for index, task in enumerate(tasks, 1):
+        row = f"\t{index}) {task[0]} - {task[1]}\n"
+        text += row
+    await message.answer(text)
